@@ -1,4 +1,4 @@
-#Resolver
+# Resolver
 Resolver is a simple application that was designed to solve *quadratic equations*
 
 ##Main features:
