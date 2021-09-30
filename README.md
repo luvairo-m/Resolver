@@ -1,5 +1,5 @@
 # Resolver
-Resolver is a simple application that was designed to solve *quadratic equations*
+Resolver is a simple application that was designed to solve **quadratic equations**
 
 ## Main features:
     1. simple and intuitive interface
