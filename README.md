@@ -2,9 +2,9 @@
 Resolver is a simple application that was designed to solve *quadratic equations*
 
 ## Main features:
-    - simple and intuitive interface
-    - light weight of the program
-    - quick solution of equations
+    1. simple and intuitive interface
+    2. light weight of the program
+    3. quick solution of equations
     
 ## Other information:
     + owner: luvairo
