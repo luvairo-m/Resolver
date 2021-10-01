@@ -54,7 +54,7 @@
                 />
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Vertical">
-            <TextBox 
+            <TextBox  TextWrapping="Wrap"
                 Style="{StaticResource textbox_second_style}"
                 Text="{Binding Path=Equation.Solution, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 />

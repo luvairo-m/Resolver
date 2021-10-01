@@ -13,6 +13,8 @@ namespace Resolver
 
         private string _solution;
 
+        private readonly string formulas = Properties.Resources.formulas;
+
         public double A
         {
             get => _a;
@@ -54,39 +56,34 @@ namespace Resolver
             }
         }
 
-        public void ProcessInformation(QuadraticEquation equation)
+        public void ProcessSolution(QuadraticEquation equation)
         {
             StringBuilder text = new StringBuilder();
 
-            switch(equation.HasRoots)
+            switch (equation.HasRoots)
             {
                 case true:
-                    if(equation.Descriminant != 0)
-                    {
-                        text.AppendLine($"D = {equation.Descriminant} => 2 roots");
-                        text.AppendLine($"\t=> x(1) = {equation.FirstRoot}");
-                        text.AppendLine($"\t=> x(2) = {equation.SecondRoot}");
-                        text.Append($"Answer: {equation.FirstRoot}; {equation.SecondRoot}");
-                    } else
-                    {
-                        text.AppendLine($"D = {equation.Descriminant} => 1 root");
-                        text.AppendLine($"\t=> x(1) = {equation.FirstRoot}");
-                        text.AppendLine($"Answer: {equation.FirstRoot}");
-                    }
+                    text.AppendLine($"1. D = {equation.Descriminant} => {(equation.Descriminant != 0 ? "2 roots" : "1 root")}");
+                    text.AppendLine($"2. x(1) = {equation.FirstRoot}");
+                    text.AppendLine($"{(equation.Descriminant != 0 ? $"3. x(2) = {equation.SecondRoot}" : "3. x(2) doesn't exist")}");
+                    text.AppendLine($"Answer: {equation.FirstRoot} {(equation.Descriminant != 0 ? $"; {equation.SecondRoot}" : string.Empty)}");
                     break;
 
                 default:
                     text.AppendLine($"D = {equation.Descriminant} => no solutions");
-                    text.Append($"Answer: empty set");
+                    text.AppendLine($"Answer: empty set");
                     break;
             }
+
+            text.AppendLine($"\nFomulas:");
+            text.Append(formulas);
 
             Solution = text.ToString();
         }
 
         public void Solve()
         {
-            double desc = B * B - 4 * A * C;
+            double desc = (B * B) - (4 * A * C);
 
             QuadraticEquation equation = new QuadraticEquation
             {
@@ -96,7 +93,7 @@ namespace Resolver
                 SecondRoot = Math.Round((-B + Math.Sqrt(desc)) / (2 * A), 2)
             };
 
-            ProcessInformation(equation);
+            ProcessSolution(equation);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
