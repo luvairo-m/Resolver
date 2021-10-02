@@ -9,6 +9,10 @@
         Background="#FF252526"
         WindowStartupLocation="CenterScreen"
         Title="Resolver (made by LuVairo)" Height="500" Width="400">
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding SolveCommand}"/>
+        <KeyBinding Key="R" Modifiers="Ctrl" Command="{Binding RefreshCommand}"/>
+    </Window.InputBindings>
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
@@ -63,12 +67,20 @@
                     Style="{StaticResource button_main_style}"
                     Command="{Binding SolveCommand}"
                     Content="Solve" Cursor="Hand"
-                    />
+                    >
+                    <Button.ToolTip>
+                        <ToolTip Content="LeftCtrl + S" FontSize="14"/>
+                    </Button.ToolTip>
+                </Button>
                 <Button
                     Style="{StaticResource button_main_style}"
                     Command="{Binding RefreshCommand}"
                     Content="Refresh" Cursor="Hand"
-                    />
+                    >
+                    <Button.ToolTip>
+                        <ToolTip Content="LeftCtrl + R" FontSize="14"/>
+                    </Button.ToolTip>
+                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>
