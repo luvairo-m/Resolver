@@ -59,17 +59,5 @@ namespace Resolver.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на ax^2 + bx + c = 0
-        ///D = b^2 - 4ac
-        ///x(1) = (-b + sqrt(D)) / (2a)
-        ///x(2) = (-b - sqrt(D)) / (2a).
-        /// </summary>
-        internal static string formulas {
-            get {
-                return ResourceManager.GetString("formulas", resourceCulture);
-            }
-        }
     }
 }

@@ -12,9 +12,6 @@ namespace Resolver
         private double _c;
 
         private string _solution;
-
-        private readonly string formulas = Properties.Resources.formulas;
-
         public double A
         {
             get => _a;
@@ -74,9 +71,6 @@ namespace Resolver
                     text.AppendLine($"Answer: empty set");
                     break;
             }
-
-            text.AppendLine($"\nFomulas:");
-            text.Append(formulas);
 
             Solution = text.ToString();
         }
