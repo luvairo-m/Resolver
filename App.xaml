@@ -55,6 +55,12 @@
                                     Storyboard.TargetProperty="Color" To="DodgerBlue" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </VisualState>
+                                    <VisualState Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor"
+                                                            Storyboard.TargetProperty="Color" To="Gray" Duration="0:0:0.5"/>
+                                        </Storyboard>
+                                    </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                         </Border>

@@ -5,26 +5,24 @@ using System.Text;
 
 namespace Resolver
 {
-    class EquationModel : INotifyPropertyChanged, IDataErrorInfo
+    internal class EquationModel : INotifyPropertyChanged, IDataErrorInfo
     {
-        private double _a = 1;
-        private double _b;
-        private double _c;
-
+        private double? _a, _b, _c;
         private string _solution;
-        public double A
+
+        public double? A
         {
             get => _a;
             set { _a = value; OnPropertyChanged(); }
         }
 
-        public double B
+        public double? B
         {
             get => _b;
             set { _b = value; OnPropertyChanged(); }
         }
 
-        public double C
+        public double? C
         {
             get => _c;
             set { _c = value; OnPropertyChanged(); }
@@ -48,6 +46,8 @@ namespace Resolver
                     case "A":
                         if (A == 0) { error = "A value cannot be null"; }
                         break;
+                    default:
+                        break;
                 }
                 return error;
             }
@@ -55,36 +55,40 @@ namespace Resolver
 
         public void ProcessSolution(QuadraticEquation equation)
         {
-            StringBuilder text = new StringBuilder();
+            //StringBuilder text = new StringBuilder();
 
-            switch (equation.HasRoots)
-            {
-                case true:
-                    text.AppendLine($"1. D = {equation.Descriminant} => {(equation.Descriminant != 0 ? "2 roots" : "1 root")}");
-                    text.AppendLine($"2. x(1) = {equation.FirstRoot}");
-                    text.AppendLine($"{(equation.Descriminant != 0 ? $"3. x(2) = {equation.SecondRoot}" : "3. x(2) doesn't exist")}");
-                    text.AppendLine($"Answer: {equation.FirstRoot} {(equation.Descriminant != 0 ? $"; {equation.SecondRoot}" : string.Empty)}");
-                    break;
+            //switch (equation.HasRoots)
+            //{
+            //    case true:
+            //        _ = text.AppendLine($"1. D = {equation.Descriminant} => {(equation.Descriminant != 0 ? "2 roots" : "1 root")}");
+            //        _ = text.AppendLine($"2. x(1) = {equation.FirstRoot}");
+            //        _ = text.AppendLine($"{(equation.Descriminant != 0 ? $"3. x(2) = {equation.SecondRoot}" : "3. x(2) doesn't exist")}");
+            //        _ = text.AppendLine($"Answer: {equation.FirstRoot} {(equation.Descriminant != 0 ? $"; {equation.SecondRoot}" : string.Empty)}");
+            //        break;
 
-                default:
-                    text.AppendLine($"D = {equation.Descriminant} => no solutions");
-                    text.AppendLine($"Answer: empty set");
-                    break;
-            }
+            //    default:
+            //        _ = text.AppendLine($"D = {equation.Descriminant} => no solutions");
+            //        _ = text.AppendLine($"Answer: empty set");
+            //        break;
+            //}
 
-            Solution = text.ToString();
+            //Solution = text.ToString();
+
         }
 
         public void Solve()
         {
-            double desc = (B * B) - (4 * A * C);
+            double desc = (B.Value * B.Value) - (4 * A.Value * C.Value);
 
             QuadraticEquation equation = new QuadraticEquation
             {
                 HasRoots = desc >= 0,
                 Descriminant = desc,
-                FirstRoot = Math.Round((-B - Math.Sqrt(desc)) / (2 * A), 2),
-                SecondRoot = Math.Round((-B + Math.Sqrt(desc)) / (2 * A), 2)
+                FirstRoot = Math.Round((-B.Value - Math.Sqrt(desc)) / (2 * A.Value), 2),
+                SecondRoot = Math.Round((-B.Value + Math.Sqrt(desc)) / (2 * A.Value), 2),
+                FirstCoefficent = A.Value,
+                SecondCoefficent = B.Value,
+                FreeMember = C.Value
             };
 
             ProcessSolution(equation);
@@ -100,6 +104,9 @@ namespace Resolver
             public double Descriminant { get; set; }
             public double? FirstRoot { get; set; }
             public double? SecondRoot { get; set; }
+            public double FirstCoefficent { get; set; }
+            public double SecondCoefficent { get; set; }
+            public double FreeMember { get; set; }
         }
     }
 }

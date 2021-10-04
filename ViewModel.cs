@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Resolver
 {
-    class ViewModel : INotifyPropertyChanged
+    internal class ViewModel : INotifyPropertyChanged
     {
         public EquationModel Equation { get; set; } = new EquationModel();
 
@@ -15,8 +15,7 @@ namespace Resolver
                 (obj) =>
                 {
                     Equation.Solution = string.Empty;
-                    Equation.A = 1;
-                    Equation.B = Equation.C = 0;
+                    Equation.A = Equation.B = Equation.C = null;
                 }
             );
         }
@@ -28,6 +27,10 @@ namespace Resolver
                 (obj) =>
                 {
                     Equation.Solve();
+                    Equation.A = Equation.B = Equation.C = null; 
+                }, (lambda) => 
+                {
+                    return Equation.A.HasValue && Equation.B.HasValue && Equation.C.HasValue; 
                 }
             );
         }
