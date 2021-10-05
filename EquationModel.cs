@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -55,25 +56,69 @@ namespace Resolver
 
         public void ProcessSolution(QuadraticEquation equation)
         {
-            //StringBuilder text = new StringBuilder();
-
-            //switch (equation.HasRoots)
+            //switch (equation.RootsCount)
             //{
-            //    case true:
-            //        _ = text.AppendLine($"1. D = {equation.Descriminant} => {(equation.Descriminant != 0 ? "2 roots" : "1 root")}");
-            //        _ = text.AppendLine($"2. x(1) = {equation.FirstRoot}");
-            //        _ = text.AppendLine($"{(equation.Descriminant != 0 ? $"3. x(2) = {equation.SecondRoot}" : "3. x(2) doesn't exist")}");
-            //        _ = text.AppendLine($"Answer: {equation.FirstRoot} {(equation.Descriminant != 0 ? $"; {equation.SecondRoot}" : string.Empty)}");
+            //    case 0:
+            //        Solution.Add(
+            //            "answer",
+            //            "Asnwer: no roots (empty set)"
+            //        );
             //        break;
-
-            //    default:
-            //        _ = text.AppendLine($"D = {equation.Descriminant} => no solutions");
-            //        _ = text.AppendLine($"Answer: empty set");
+            //    case 1:
+            //        Solution.Add(
+            //            "answer",
+            //            "Asnwer: no roots (empty set)"
+            //        );
+            //        break;
+            //    case 2:
             //        break;
             //}
+            //Solution.Add(
+            //    "desc_line",
+            //    $"D = {equation.SecondCoefficent}^2 - 4{equation.FirstCoefficent}{equation.FreeMember} = "
+            //);
+            //Solution.Add(
+            //    "desc",
+            //    equation.Descriminant.ToString()
+            //);
+            //Solution.Add(
+            //    "x1_line",
+            //    $"x(1) = (-{equation.SecondCoefficent} + &#8730;{equation.Descriminant}) / (2{equation.FirstCoefficent}) = "
+            //);
+            //Solution.Add(
+            //    "x1",
+            //     equation.FirstRoot.ToString()
+            //);
+            //Solution.Add(
+            //    "x2_line",
+            //     $"x(2) = (-{equation.SecondCoefficent} - &#8730;{equation.Descriminant}) / (2{equation.FirstCoefficent}) = "
+            //);
+            //Solution.Add(
+            //    "x2",
+            //     equation.FirstRoot.ToString()
+            //);
+            //Solution.Add(
+            //    "answer",
+            //    2.ToString()
+            //);
+            StringBuilder text = new StringBuilder();
 
-            //Solution = text.ToString();
+            switch (equation.HasRoots)
+            {
+                case true:
+                    _ = text.AppendLine($"1. D = {equation.Descriminant} => {(equation.Descriminant != 0 ? "2 roots" : "1 root")}");
+                    _ = text.AppendLine($"2. x(1) = {equation.FirstRoot}");
+                    _ = text.AppendLine($"{(equation.Descriminant != 0 ? $"3. x(2) = {equation.SecondRoot}" : "3. x(2) doesn't exist")}");
+                    _ = text.AppendLine($"Answer: {equation.FirstRoot} {(equation.Descriminant != 0 ? $"; {equation.SecondRoot}" : string.Empty)}");
+                    break;
 
+                default:
+                    _ = text.AppendLine($"D = {equation.Descriminant} => no solutions");
+                    _ = text.AppendLine($"Answer: empty set");
+                    break;
+            }
+
+            Solution = text.ToString();
         }
 
         public void Solve()
@@ -82,6 +127,7 @@ namespace Resolver
 
             QuadraticEquation equation = new QuadraticEquation
             {
+                //RootsCount = desc < 0 ? 0 : desc == 0 ? 1 : 2,
                 HasRoots = desc >= 0,
                 Descriminant = desc,
                 FirstRoot = Math.Round((-B.Value - Math.Sqrt(desc)) / (2 * A.Value), 2),
@@ -100,6 +146,7 @@ namespace Resolver
 
         public struct QuadraticEquation
         {
+            //public int RootsCount { get; set; }
             public bool HasRoots { get; set; }
             public double Descriminant { get; set; }
             public double? FirstRoot { get; set; }

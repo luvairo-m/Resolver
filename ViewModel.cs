@@ -14,7 +14,7 @@ namespace Resolver
             get => _refresh_command ??= new CommandModel(
                 (obj) =>
                 {
-                    Equation.Solution = string.Empty;
+                    Equation.Solution = string.Empty; 
                     Equation.A = Equation.B = Equation.C = null;
                 }, (lambda) =>
                 {

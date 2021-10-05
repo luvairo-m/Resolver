@@ -54,64 +54,42 @@
                     Command="{Binding SolveCommand}" >
                 <Button.ToolTip>
                     <ToolTip 
-                        Content="LeftCtrl + S" FontSize="14"/>
+                        Content="LeftCtrl + S" FontSize="14"
+                        BorderThickness="0"/>
                 </Button.ToolTip>
             </Button>
             <Button Margin="0 20 0 0" Content="Refresh" Cursor="Hand"
                 Style="{StaticResource refresh_button_style}"
                     Command="{Binding RefreshCommand}">
                 <Button.ToolTip>
-                    <ToolTip Content="LeftCtrl + S" FontSize="14"/>
+                    <ToolTip Content="LeftCtrl + S" FontSize="14"
+                              BorderThickness="0"/>
                 </Button.ToolTip>
             </Button>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <FlowDocumentScrollViewer Height="250" Margin="20 20 20 20" >
-                <FlowDocument Background="#FF3E3E42" Foreground="White"
-                              FontSize="20" xml:space="default" FontStyle="Italic">
-                    <FlowDocument.Resources>
-                        <Style TargetType="Paragraph" x:Key="paragraph_main_style">
-                            <Setter Property="Margin" Value="5"/>
-                        </Style>
-                        <Style TargetType="Run" x:Key="run_subscript_style">
-                            <Setter Property="FontSize" Value="14"/>
-                            <Setter Property="BaselineAlignment" Value="Subscript"/>
-                        </Style>
-                        <Style TargetType="Run" x:Key="run_topscript_style">
-                            <Setter Property="FontSize" Value="14"/>
-                            <Setter Property="BaselineAlignment" Value="Top"/>
-                        </Style>
-                    </FlowDocument.Resources>
-                    <Section>
-                        <Paragraph Style="{StaticResource paragraph_main_style}">
-                            D =
-                            <Run Text="23"/><Run Text="2" Style="{StaticResource run_topscript_style}"/>
-                            - 4<Run Text="3245" Background="Purple"/>
-                        </Paragraph>
-                        <Paragraph Style="{StaticResource paragraph_main_style}">
-                            x<Run Style="{StaticResource run_subscript_style}" Text="1"/>
-                            = b<Run FontStyle="Italic" Style="{StaticResource run_topscript_style}" Text="2"/> - 4
-                            * <Run Text="a"/>
-                            * <Run Text="c"/> 
-                            = <Run Text="2345" Background="DodgerBlue"/>
-                        </Paragraph>
-                        <Paragraph Margin="0">
-                            x<Run Style="{StaticResource run_subscript_style}" Text="2"/>
-                            = b<Run FontStyle="Italic" Style="{StaticResource run_topscript_style}" Text="2"/> - 4
-                            * <Run Text="a"/>
-                            * <Run Text="c"/>
-                            = <Run Text="2345" Background="DodgerBlue"/>
-                        </Paragraph>
-                        <Paragraph Margin="0">
-                            <Underline>Answer:</Underline>
-                            <Run Text="12"/>
-                            <Run Text="; 12"/>
-                        </Paragraph>
-                    </Section>
-                </FlowDocument>
-            </FlowDocumentScrollViewer>
-                <TextBlock Style="{StaticResource textblock_main_style}" FontSize="15"
-                       TextAlignment="Left" HorizontalAlignment="Stretch"
+            <!-- Test version of displaying solution
+            <ScrollViewer Margin="20">
+                <TextBlock Width="450" Height="240" Background="#FF3E3E42" Padding="15"
+                    TextWrapping="Wrap" Foreground="White" FontSize="20" FontStyle="Italic">
+                    <Run Text="D = b*b - 4ac = " /><Run Background="DodgerBlue" Text="23"/>
+                    <LineBreak/>
+                    <Run Text="x(1) = (-b + &#8730;23) / (4ac) = " /><Run Background="DodgerBlue" Text="2"/>
+                    <LineBreak/>
+                    <Run Text="x(2) = (-b - &#8730;23) / (4ac) = " /><Run Background="DodgerBlue" Text="3"/>
+                    <LineBreak/>
+                    <Run Text="Answer: 3; 2 "/>
+                </TextBlock>
+            </ScrollViewer>
+                -->
+            <ScrollViewer Margin="20">
+                <TextBlock Width="450" Height="240" Background="#FF3E3E42" Padding="15"
+                    TextWrapping="Wrap" Foreground="White" FontSize="20" FontStyle="Italic"
+                           Text="{Binding Equation.Solution, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                           />
+            </ScrollViewer>
+            <TextBlock Style="{StaticResource textblock_main_style}" FontSize="15"
+                       TextAlignment="Center" HorizontalAlignment="Stretch"
                            Margin="20 0 0 0">
                 ax<Run Text="2" BaselineAlignment="Top" FontSize="10"/>
                 + bx + c = 0

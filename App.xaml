@@ -95,7 +95,7 @@
             <Setter Property="MaxLength" Value="10"/>
             <Setter Property="ToolTip">
                 <Setter.Value>
-                    <ToolTip Content="Specify the value (use '.' instead of ',' for float numbers)" FontSize="14"/>
+                    <ToolTip BorderThickness="0" Content="Specify the value (use '.' instead of ',' for float numbers)" FontSize="14"/>
                 </Setter.Value>
             </Setter>
         </Style>
