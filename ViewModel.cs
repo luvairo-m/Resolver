@@ -16,6 +16,11 @@ namespace Resolver
                 {
                     Equation.Solution = string.Empty;
                     Equation.A = Equation.B = Equation.C = null;
+                }, (lambda) =>
+                {
+                    return Equation.A.HasValue
+                    || Equation.B.HasValue
+                    || Equation.C.HasValue;
                 }
             );
         }
@@ -27,10 +32,11 @@ namespace Resolver
                 (obj) =>
                 {
                     Equation.Solve();
-                    Equation.A = Equation.B = Equation.C = null; 
                 }, (lambda) => 
                 {
-                    return Equation.A.HasValue && Equation.B.HasValue && Equation.C.HasValue; 
+                    return Equation.A.HasValue 
+                    && Equation.B.HasValue 
+                    && Equation.C.HasValue; 
                 }
             );
         }

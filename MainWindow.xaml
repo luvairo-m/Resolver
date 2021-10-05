@@ -25,7 +25,8 @@
         <StackPanel Orientation="Vertical" Margin="0 10 0 0">
             <TextBlock Style="{StaticResource textblock_main_style}"
                 Text="Coefficient a:"/>
-            <TextBox Style="{StaticResource textbox_main_style}">
+            <TextBox Style="{StaticResource textbox_main_style}"
+                     x:Name="first_input_field">
                 <TextBox.Text>
                     <Binding Path="Equation.A" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"
                              TargetNullValue="{x:Static sys:String.Empty}">
@@ -39,22 +40,25 @@
             <TextBlock Style="{StaticResource textblock_main_style}"
                 Text="Coefficient b:"/>
             <TextBox Style="{StaticResource textbox_main_style}"
+                     x:Name="second_input_field"
                      Text="{Binding Path=Equation.B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue={x:Static sys:String.Empty}}"
                 />
             <TextBlock Style="{StaticResource textblock_main_style}"
                 Text="Free member c:"/>
             <TextBox Style="{StaticResource textbox_main_style}"
+                     x:Name="third_input_field"
                      Text="{Binding Path=Equation.C, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue={x:Static sys:String.Empty}}"
                 />
             <Button Margin="0 20 0 0" Content="Solve" Cursor="Hand"            
-                Style="{StaticResource button_main_style}"
-                    Command="{Binding SolveCommand}">
+                Style="{StaticResource solve_button_style}"
+                    Command="{Binding SolveCommand}" >
                 <Button.ToolTip>
-                    <ToolTip Content="LeftCtrl + S" FontSize="14"/>
+                    <ToolTip 
+                        Content="LeftCtrl + S" FontSize="14"/>
                 </Button.ToolTip>
             </Button>
             <Button Margin="0 20 0 0" Content="Refresh" Cursor="Hand"
-                Style="{StaticResource button_main_style}"
+                Style="{StaticResource refresh_button_style}"
                     Command="{Binding RefreshCommand}">
                 <Button.ToolTip>
                     <ToolTip Content="LeftCtrl + S" FontSize="14"/>
