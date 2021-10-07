@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace Resolver
 {
     internal class EquationModel : INotifyPropertyChanged, IDataErrorInfo
     {
-        private double? _a, _b, _c;
-        private string _solution;
+        private double? _a, _b, _c, _descriminant, _first_root, _second_root;
+        private string _descriminant_line, _first_root_line, _second_root_line, _answer_line;
 
         public double? A
         {
@@ -29,10 +27,41 @@ namespace Resolver
             set { _c = value; OnPropertyChanged(); }
         }
 
-        public string Solution
+        public string DescriminantLine
         {
-            get => _solution;
-            set { _solution = value; OnPropertyChanged(); }
+            get => _descriminant_line;
+            set { _descriminant_line = value; OnPropertyChanged(); }
+        }
+        public double? Descriminant
+        {
+            get => _descriminant;
+            set { _descriminant = value; OnPropertyChanged(); }
+        }
+        public string FirstRootLine
+        {
+            get => _first_root_line;
+            set { _first_root_line = value; OnPropertyChanged(); }
+        }
+        public double? FirstRoot
+        {
+            get => _first_root;
+            set { _first_root = value; OnPropertyChanged(); }
+        }
+        public string SecondRootLine
+        {
+            get => _second_root_line;
+            set { _second_root_line = value; OnPropertyChanged(); }
+        }
+        public double? SecondRoot
+        {
+            get => _second_root;
+            set { _second_root = value; OnPropertyChanged(); }
+        }
+
+        public string AnswerLine
+        {
+            get => _answer_line;
+            set { _answer_line = value; OnPropertyChanged(); }
         }
 
         public string Error => throw new NotImplementedException();
@@ -54,106 +83,31 @@ namespace Resolver
             }
         }
 
-        public void ProcessSolution(QuadraticEquation equation)
-        {
-            //switch (equation.RootsCount)
-            //{
-            //    case 0:
-            //        Solution.Add(
-            //            "answer",
-            //            "Asnwer: no roots (empty set)"
-            //        );
-            //        break;
-            //    case 1:
-            //        Solution.Add(
-            //            "answer",
-            //            "Asnwer: no roots (empty set)"
-            //        );
-            //        break;
-            //    case 2:
-            //        break;
-            //}
-            //Solution.Add(
-            //    "desc_line",
-            //    $"D = {equation.SecondCoefficent}^2 - 4{equation.FirstCoefficent}{equation.FreeMember} = "
-            //);
-            //Solution.Add(
-            //    "desc",
-            //    equation.Descriminant.ToString()
-            //);
-            //Solution.Add(
-            //    "x1_line",
-            //    $"x(1) = (-{equation.SecondCoefficent} + &#8730;{equation.Descriminant}) / (2{equation.FirstCoefficent}) = "
-            //);
-            //Solution.Add(
-            //    "x1",
-            //     equation.FirstRoot.ToString()
-            //);
-            //Solution.Add(
-            //    "x2_line",
-            //     $"x(2) = (-{equation.SecondCoefficent} - &#8730;{equation.Descriminant}) / (2{equation.FirstCoefficent}) = "
-            //);
-            //Solution.Add(
-            //    "x2",
-            //     equation.FirstRoot.ToString()
-            //);
-            //Solution.Add(
-            //    "answer",
-            //    2.ToString()
-            //);
-            StringBuilder text = new StringBuilder();
-
-            switch (equation.HasRoots)
-            {
-                case true:
-                    _ = text.AppendLine($"1. D = {equation.Descriminant} => {(equation.Descriminant != 0 ? "2 roots" : "1 root")}");
-                    _ = text.AppendLine($"2. x(1) = {equation.FirstRoot}");
-                    _ = text.AppendLine($"{(equation.Descriminant != 0 ? $"3. x(2) = {equation.SecondRoot}" : "3. x(2) doesn't exist")}");
-                    _ = text.AppendLine($"Answer: {equation.FirstRoot} {(equation.Descriminant != 0 ? $"; {equation.SecondRoot}" : string.Empty)}");
-                    break;
-
-                default:
-                    _ = text.AppendLine($"D = {equation.Descriminant} => no solutions");
-                    _ = text.AppendLine($"Answer: empty set");
-                    break;
-            }
-
-            Solution = text.ToString();
-        }
-
-        public void Solve()
+        public void SolveEquation()
         {
             double desc = (B.Value * B.Value) - (4 * A.Value * C.Value);
 
-            QuadraticEquation equation = new QuadraticEquation
-            {
-                //RootsCount = desc < 0 ? 0 : desc == 0 ? 1 : 2,
-                HasRoots = desc >= 0,
-                Descriminant = desc,
-                FirstRoot = Math.Round((-B.Value - Math.Sqrt(desc)) / (2 * A.Value), 2),
-                SecondRoot = Math.Round((-B.Value + Math.Sqrt(desc)) / (2 * A.Value), 2),
-                FirstCoefficent = A.Value,
-                SecondCoefficent = B.Value,
-                FreeMember = C.Value
-            };
+            double? first_root = Math.Round((-B.Value + Math.Sqrt(desc)) / (2 * A.Value), 2);
+            double? second_root = Math.Round((-B.Value - Math.Sqrt(desc)) / (2 * A.Value), 2);
 
-            ProcessSolution(equation);
+            DescriminantLine = $"D = {B.Value}^2 - 4 * {A.Value} * {C.Value} = ";
+            Descriminant = desc;
+            FirstRootLine = desc < 0 ? $"x(1) doesn't exist" : $"x(1) = (-{B.Value} + sqrt({desc})) / (2 * {A.Value}) = ";
+            FirstRoot = double.IsNaN(first_root.Value) ? null : first_root;
+            SecondRootLine = desc <= 0 ? "x(2) doesn't exist" : $"x(2) = (-{B.Value} - sqrt({desc})) / (2 * {A.Value}) = ";
+            SecondRoot = double.IsNaN(second_root.Value) ? null : second_root;
+            AnswerLine = desc < 0 ? "Answer: empty set (no sulutions)" : desc == 0 ? $"Answer: {first_root}" : $"Answer: {first_root}; {second_root}";
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
 
-        public struct QuadraticEquation
+        public void ClearFields()
         {
-            //public int RootsCount { get; set; }
-            public bool HasRoots { get; set; }
-            public double Descriminant { get; set; }
-            public double? FirstRoot { get; set; }
-            public double? SecondRoot { get; set; }
-            public double FirstCoefficent { get; set; }
-            public double SecondCoefficent { get; set; }
-            public double FreeMember { get; set; }
+            A = B = C = null;
+            FirstRootLine = SecondRootLine = DescriminantLine = AnswerLine = null;
+            FirstRoot = SecondRoot = Descriminant = null;
         }
     }
 }

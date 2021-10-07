@@ -7,15 +7,13 @@ namespace Resolver
     {
         public EquationModel Equation { get; set; } = new EquationModel();
 
-
         private CommandModel _refresh_command;
         public CommandModel RefreshCommand
         {
             get => _refresh_command ??= new CommandModel(
                 (obj) =>
                 {
-                    Equation.Solution = string.Empty; 
-                    Equation.A = Equation.B = Equation.C = null;
+                    Equation.ClearFields();
                 }, (lambda) =>
                 {
                     return Equation.A.HasValue
@@ -31,7 +29,7 @@ namespace Resolver
             get => _solve_command ??= new CommandModel(
                 (obj) =>
                 {
-                    Equation.Solve();
+                    Equation.SolveEquation();
                 }, (lambda) => 
                 {
                     return Equation.A.HasValue 
