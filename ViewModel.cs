@@ -13,7 +13,8 @@ namespace Resolver
             get => _refresh_command ??= new CommandModel(
                 (obj) =>
                 {
-                    Equation.ClearFields();
+                    Equation.Solution = default;
+                    Equation.A = Equation.B = Equation.C = null;
                 }, (lambda) =>
                 {
                     return Equation.A.HasValue
