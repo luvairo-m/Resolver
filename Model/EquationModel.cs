@@ -64,7 +64,7 @@ namespace Resolver
                 FirstRootLine = desc < 0 ? $"x(1) doesn't exist" : $"x(1) = (-{B.Value} + sqrt({desc})) / (2 * {A.Value}) = ",
                 FirstRoot = double.IsNaN(first_root.Value) ? null : first_root,
                 SecondRootLine = desc <= 0 ? "x(2) doesn't exist" : $"x(2) = (-{B.Value} - sqrt({desc})) / (2 * {A.Value}) = ",
-                SecondRoot = double.IsNaN(second_root.Value) ? null : second_root,
+                SecondRoot = double.IsNaN(second_root.Value) || second_root.Value == first_root.Value ? null : second_root,
                 Answer = desc < 0 ? "Answer: empty set (no sulutions)" : desc == 0 ? $"Answer: {first_root}" : $"Answer: {first_root}; {second_root}"
             };
         }

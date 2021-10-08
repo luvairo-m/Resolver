@@ -4,15 +4,17 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>variable48.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\Icons\app_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Fonts\vag-world-bold.ttf" />
+    <None Remove="Assets\Icons\app_icon.ico" />
+    <None Remove="Assets\vag-world-bold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Fonts\vag-world-bold.ttf" />
+    <Resource Include="Assets\Fonts\vag-world-bold.ttf" />
+    <Resource Include="Assets\Icons\app_icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
