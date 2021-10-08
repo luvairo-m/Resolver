@@ -4,6 +4,10 @@ namespace Resolver
 {
     public partial class MainWindow : Window
     {
-        public MainWindow() => InitializeComponent();
+        public MainWindow()
+        {
+            FrameworkCompatibilityPreferences.KeepTextBoxDisplaySynchronizedWithTextProperty = false;
+            InitializeComponent();
+        }
     }
 }

@@ -22,10 +22,10 @@
             <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="140"/>
         </Style>
-        <Style TargetType="Button" x:Key="button_main_style">
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Margin" Value="20 10 20 20"/>
+        <Style TargetType="Button" x:Key="refresh_button_style">
+            <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="40"/>
+            <Setter Property="ToolTipService.ShowOnDisabled" Value="True"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="DodgerBlue"/>
             <Setter Property="Foreground" Value="White"/>
@@ -47,13 +47,19 @@
                                     <VisualState Name="MouseOver">
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="DarkBlue" />
+                                    Storyboard.TargetProperty="Color" To="DarkBlue" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState Name="Normal">
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="DodgerBlue" />
+                                    Storyboard.TargetProperty="Color" To="DodgerBlue" Duration="0:0:0.5"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState Name="Disabled">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="BorderColor"
+                                                            Storyboard.TargetProperty="Color" To="Gray" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
@@ -62,6 +68,20 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="solve_button_style"
+               BasedOn="{StaticResource refresh_button_style}">
+            <Setter Property="IsEnabled" Value="False"/>
+            <Style.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=first_input_field}" Value="False"/>
+                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=second_input_field}" Value="False"/>
+                        <Condition Binding="{Binding Path=(Validation.HasError), ElementName=third_input_field}" Value="False"/>
+                    </MultiDataTrigger.Conditions>
+                    <Setter Property="IsEnabled" Value="True"/>
+                </MultiDataTrigger>
+            </Style.Triggers>
         </Style>
         <Style TargetType="TextBox" x:Key="textbox_main_style">
             <Setter Property="Foreground" Value="White"/>
@@ -75,7 +95,7 @@
             <Setter Property="MaxLength" Value="10"/>
             <Setter Property="ToolTip">
                 <Setter.Value>
-                    <ToolTip Content="Specify the value (use '.' instead of ',' for float numbers)" FontSize="14"/>
+                    <ToolTip BorderThickness="0" Content="Specify the value (use '.' instead of ',' for float numbers)" FontSize="14"/>
                 </Setter.Value>
             </Setter>
         </Style>

@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="formulas" xml:space="preserve">
-    <value>ax^2 + bx + c = 0
-D = b^2 - 4ac
-x(1) = (-b + sqrt(D)) / (2a)
-x(2) = (-b - sqrt(D)) / (2a)</value>
-  </data>
 </root>

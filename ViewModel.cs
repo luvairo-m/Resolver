@@ -3,10 +3,9 @@ using System.Runtime.CompilerServices;
 
 namespace Resolver
 {
-    class ViewModel : INotifyPropertyChanged
+    internal class ViewModel : INotifyPropertyChanged
     {
         public EquationModel Equation { get; set; } = new EquationModel();
-
 
         private CommandModel _refresh_command;
         public CommandModel RefreshCommand
@@ -14,9 +13,13 @@ namespace Resolver
             get => _refresh_command ??= new CommandModel(
                 (obj) =>
                 {
-                    Equation.Solution = string.Empty;
-                    Equation.A = 1;
-                    Equation.B = Equation.C = 0;
+                    Equation.Solution = default;
+                    Equation.A = Equation.B = Equation.C = null;
+                }, (lambda) =>
+                {
+                    return Equation.A.HasValue
+                    || Equation.B.HasValue
+                    || Equation.C.HasValue;
                 }
             );
         }
@@ -27,7 +30,12 @@ namespace Resolver
             get => _solve_command ??= new CommandModel(
                 (obj) =>
                 {
-                    Equation.Solve();
+                    Equation.SolveEquation();
+                }, (lambda) => 
+                {
+                    return Equation.A.HasValue 
+                    && Equation.B.HasValue 
+                    && Equation.C.HasValue; 
                 }
             );
         }
