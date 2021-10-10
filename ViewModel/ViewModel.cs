@@ -36,8 +36,8 @@ namespace Resolver
                     );
                 }, (lambda) =>
                 {
-                    return Equation.Solution.FirstRoot.HasValue
-                    || Equation.Solution.SecondRoot.HasValue
+                    return (Equation.Solution.FirstRoot.HasValue
+                    || Equation.Solution.SecondRoot.HasValue)
                     && Equation.Solution != null;
                 }
             );

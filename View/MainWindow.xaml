@@ -17,7 +17,7 @@
     <Window.InputBindings>
         <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding SolveCommand}"/>
         <KeyBinding Key="R" Modifiers="Ctrl" Command="{Binding RefreshCommand}"/>
-        <KeyBinding Key="C" Modifiers="Ctrl" Command="{Binding CopyCommand}"/>
+        <KeyBinding Key="B" Modifiers="Ctrl" Command="{Binding CopyCommand}"/>
     </Window.InputBindings>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -84,7 +84,7 @@
                     <LineBreak/>
                     <Run Text="{Binding Equation.Solution.Answer, UpdateSourceTrigger=PropertyChanged}"/>
                     <TextBlock.ToolTip>
-                        <ToolTip BorderThickness="0" Content="Press (Ctrl + C) to copy roots" FontSize="14"/>
+                        <ToolTip BorderThickness="0" Content="Press (Ctrl + B) to copy roots" FontSize="14"/>
                     </TextBlock.ToolTip>
                 </TextBlock>
             </ScrollViewer>
