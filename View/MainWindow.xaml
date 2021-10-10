@@ -25,7 +25,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical" Margin="0 10 0 0">
-            <TextBlock Style="{StaticResource textblock_main_style}"
+            <TextBlock Style="{StaticResource textblock_coefficent_style}"
                 Text="Coefficient a:"/>
             <TextBox Style="{StaticResource textbox_main_style}"
                      x:Name="first_input_field">
@@ -39,13 +39,13 @@
                 </TextBox.Text>
             </TextBox>
 
-            <TextBlock Style="{StaticResource textblock_main_style}"
+            <TextBlock Style="{StaticResource textblock_coefficent_style}"
                 Text="Coefficient b:"/>
             <TextBox Style="{StaticResource textbox_main_style}"
                      x:Name="second_input_field"
                      Text="{Binding Path=Equation.B, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, TargetNullValue={x:Static sys:String.Empty}}"
                 />
-            <TextBlock Style="{StaticResource textblock_main_style}"
+            <TextBlock Style="{StaticResource textblock_coefficent_style}"
                 Text="Free member c:"/>
             <TextBox Style="{StaticResource textbox_main_style}"
                      x:Name="third_input_field"
@@ -71,8 +71,7 @@
         </StackPanel>
         <StackPanel Grid.Column="1">
             <ScrollViewer Margin="20">
-                <TextBlock Width="450" Height="240" Background="#FF3E3E42" Padding="15"
-                    TextWrapping="Wrap" Foreground="White" FontSize="17" >
+                <TextBlock Style="{StaticResource textblock_solution_style}" >
                     <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
                                                                                                    Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>
                     <LineBreak/>
@@ -88,7 +87,7 @@
                     </TextBlock.ToolTip>
                 </TextBlock>
             </ScrollViewer>
-            <TextBlock Style="{StaticResource textblock_main_style}" FontSize="15"
+            <TextBlock Style="{StaticResource textblock_coefficent_style}" FontSize="15"
                        TextAlignment="Center" HorizontalAlignment="Stretch"
                            Margin="20 0 0 0">
                 ax<Run Text="2" BaselineAlignment="Top" FontSize="10"/>
