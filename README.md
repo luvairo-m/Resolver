@@ -13,6 +13,9 @@ Resolver is a simple application that was designed to solve **quadratic equation
     + programming language: C#  
     + platforms: Windows 7-10
     + framework: WPF (Windows Presentation Foundation)
+    
+ # Installation
+Installer (Yandex Disk): https://disk.yandex.ru/d/Vt3blfao_ty91g
 
 ## Some photos
 ![first_screenshot](https://user-images.githubusercontent.com/53510413/136796723-dab681c8-b63d-4fda-9813-a2eb8ea22cca.png)
