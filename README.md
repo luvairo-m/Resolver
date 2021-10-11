@@ -17,7 +17,7 @@ Resolver is a simple application that was designed to solve **quadratic equation
 # Installation Guide
 Just download ResolverInstaller.msi from the link below, run it and follow the instructions
 <br/>
-**Installer (Yandex Disk):** https://disk.yandex.ru/d/Vt3blfao_ty91g
+**Yandex Disk:** https://disk.yandex.ru/d/Vt3blfao_ty91g
 
 ## Some photos
 ![first_screenshot](https://user-images.githubusercontent.com/53510413/136796723-dab681c8-b63d-4fda-9813-a2eb8ea22cca.png)
