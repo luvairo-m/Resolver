@@ -8,6 +8,13 @@ namespace Resolver
     {
         public EquationModel Equation { get; set; } = new EquationModel();
 
+        private bool _is_equation_copied;
+        public bool IsEquationCopied
+        {
+            get => _is_equation_copied;
+            set { _is_equation_copied = value; OnPropertyChanged(); }
+        }
+
         private CommandModel _refresh_command;
         public CommandModel RefreshCommand
         {
@@ -34,11 +41,14 @@ namespace Resolver
                     Clipboard.SetText(
                         $"{Equation.Solution.FirstRoot} {Equation.Solution.SecondRoot}"
                     );
+
+                    // animation states
+                    IsEquationCopied = true;
+                    IsEquationCopied = !IsEquationCopied;
                 }, (lambda) =>
                 {
-                    return Equation.Solution.FirstRoot.HasValue
-                    || Equation.Solution.SecondRoot.HasValue
-                    && Equation.Solution != null;
+                    return Equation.Solution != null &&
+                    (Equation.Solution.FirstRoot.HasValue || Equation.Solution.SecondRoot.HasValue);
                 }
             );
         }
@@ -50,11 +60,11 @@ namespace Resolver
                 (action) =>
                 {
                     Equation.SolveEquation();
-                }, (lambda) => 
+                }, (lambda) =>
                 {
-                    return Equation.A.HasValue 
-                    && Equation.B.HasValue 
-                    && Equation.C.HasValue; 
+                    return Equation.A.HasValue
+                    && Equation.B.HasValue
+                    && Equation.C.HasValue;
                 }
             );
         }

@@ -26,6 +26,7 @@ namespace Resolver
             get => _c;
             set { _c = value; OnPropertyChanged(); }
         }
+
         public EquationSolution Solution
         {
             get => _solution;
