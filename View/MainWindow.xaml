@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Resolver"
-        ResizeMode="NoResize"
         mc:Ignorable="d"
         Background="#FF252526"
+        ResizeMode="CanMinimize"
         Icon="../Assets/Icons/app_icon.ico"
         WindowStartupLocation="CenterScreen"
         Title="Resolver (made by LuVairo)" Height="400" Width="800">
@@ -38,7 +38,6 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-
             <TextBlock Style="{StaticResource textblock_coefficent_style}"
                 Text="Coefficient b:"/>
             <TextBox Style="{StaticResource textbox_main_style}"
