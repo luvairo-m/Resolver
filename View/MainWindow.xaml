@@ -63,7 +63,7 @@
                 Style="{StaticResource refresh_button_style}"
                     Command="{Binding RefreshCommand}">
                 <Button.ToolTip>
-                    <ToolTip Content="LeftCtrl + S" FontSize="14"
+                    <ToolTip Content="LeftCtrl + R" FontSize="14"
                               BorderThickness="0"/>
                 </Button.ToolTip>
             </Button>
