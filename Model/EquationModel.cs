@@ -43,7 +43,7 @@ namespace Resolver
                 switch (columnName)
                 {
                     case "A":
-                        if (A == 0) { Error = "A value cannot be null"; }
+                        Error = A == 0 ? "A value cannot be null" : string.Empty;
                         break;
                     default:
                         break;
