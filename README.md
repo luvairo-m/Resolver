@@ -15,7 +15,7 @@ Resolver is a simple application that was designed to solve **quadratic equation
     + framework: WPF (Windows Presentation Foundation)
     
 # Installation Guide
-Just download ResolverInstaller.msi from the link below, run it and follow the instructions
+Just download installer from the link below, run it and follow the instructions
 <br/>
 **Yandex Disk:** https://disk.yandex.ru/d/Yj8fhAXGmfTftg
 
