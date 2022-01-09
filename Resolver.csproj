@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="WpfMath" Version="0.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\Fonts\vag-world-bold.ttf" />
     <Resource Include="Assets\Icons\app_icon.ico" />
   </ItemGroup>

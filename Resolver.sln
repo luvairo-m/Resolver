@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resolver", "Resolver.csproj", "{EA0427A3-C47F-4F44-A783-5B612F3C7616}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ResolverInstaller", "..\ResolverInstaller\ResolverInstaller.vdproj", "{A990096D-DBCE-46E5-87C8-0F435DD10BCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,17 +15,11 @@ Global
 		{EA0427A3-C47F-4F44-A783-5B612F3C7616}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{EA0427A3-C47F-4F44-A783-5B612F3C7616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA0427A3-C47F-4F44-A783-5B612F3C7616}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A990096D-DBCE-46E5-87C8-0F435DD10BCB}.Debug|Any CPU.ActiveCfg = Release
-		{A990096D-DBCE-46E5-87C8-0F435DD10BCB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A861B61-DEF5-4196-9E31-0D0F653AE94E}
-	EndGlobalSection
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 EndGlobal

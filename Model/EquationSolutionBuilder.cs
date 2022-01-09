@@ -2,7 +2,7 @@
 {
     internal class EquationSolutionBuilder
     {
-        private EquationSolution _solution;
+        private readonly EquationSolution _solution;
 
         internal EquationSolutionBuilder() => _solution = new EquationSolution();
 

@@ -1,8 +1,13 @@
 ﻿<Application x:Class="Resolver.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:m="clr-namespace:WpfMath.Controls;assembly=WpfMath"
              StartupUri="View/MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="m:FormulaControl" x:Key="formula_style">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Scale" Value="17"/>
+        </Style>
         <Style TargetType="TextBlock" x:Key="textblock_coefficent_style">
             <Setter Property="FontSize" Value="22"/>
             <Setter Property="Margin" Value="5"/>

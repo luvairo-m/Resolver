@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Resolver"
+        xmlns:m="clr-namespace:WpfMath.Controls;assembly=WpfMath"
         mc:Ignorable="d"
         Background="#FF252526"
         ResizeMode="CanMinimize"
@@ -69,7 +70,7 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <ScrollViewer Margin="20">
+            <ScrollViewer Margin="18">
                 <TextBlock Style="{StaticResource textblock_solution_style}" >
                     <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
                                                                                                    Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>
@@ -86,19 +87,32 @@
                     </TextBlock.ToolTip>
                 </TextBlock>
             </ScrollViewer>
-            <TextBlock Style="{StaticResource textblock_coefficent_style}" FontSize="15"
-                       TextAlignment="Center" HorizontalAlignment="Stretch"
-                           Margin="20 0 0 0">
-                ax<Run Text="2" BaselineAlignment="Top" FontSize="10"/>
-                + bx + c = 0
-                <LineBreak/>
-                D = b<Run Text="2" BaselineAlignment="Top" FontSize="10"/> - 4ac
-                <LineBreak/>
-                x<Run Text="1" BaselineAlignment="Subscript" FontSize="10"/>
-                = (-b + &#8730;D) / (2a);
-                x<Run Text="2" BaselineAlignment="Subscript" FontSize="10"/>
-                = (-b - &#8730;D) / (2a)
-            </TextBlock>
+            <StackPanel Orientation="Vertical">
+                <m:FormulaControl Style="{StaticResource formula_style}"
+                    HorizontalContentAlignment="Center"
+                    Formula="ax^2 + bx + c = 0"
+                />
+                <m:FormulaControl Style="{StaticResource formula_style}"
+                    HorizontalContentAlignment="Center"
+                    Formula="D = b ^ 2 - 4ac"
+                />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <m:FormulaControl HorizontalAlignment="Center" Style="{StaticResource formula_style}"
+                                      VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        Formula="x_1 = \frac{-b + \sqrt{D}}{2a}"
+                    />
+                    <m:FormulaControl Style="{StaticResource formula_style}" Grid.Column="1"
+                        HorizontalContentAlignment="Center"
+                        VerticalAlignment="Center"
+                        Formula="x_2 = \frac{-b - \sqrt{D}}{2a}"
+                    />
+                </Grid>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
