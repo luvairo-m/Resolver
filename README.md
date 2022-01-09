@@ -20,5 +20,5 @@ Just download installer from the link below, run it and follow the instructions
 **Yandex Disk:** https://disk.yandex.ru/d/Yj8fhAXGmfTftg
 
 ## Some photos
-![first_screenshot](https://user-images.githubusercontent.com/53510413/136796723-dab681c8-b63d-4fda-9813-a2eb8ea22cca.png)
-![second_screenshot](https://user-images.githubusercontent.com/53510413/136796756-6a57d8be-1c31-4774-828f-01697edb4569.png)
+![first screenshot](https://user-images.githubusercontent.com/53510413/148678045-9b08496d-f482-406c-979a-04a18e00877b.png)
+![second_screenshot](https://user-images.githubusercontent.com/53510413/148678062-185c3f43-5f12-4d26-bfce-45345bce9113.png)
