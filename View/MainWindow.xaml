@@ -25,6 +25,14 @@
             <ColumnDefinition Width="0.6*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Menu VerticalAlignment="Bottom" Background="#FF252526">
+            <MenuItem Header="Information" Foreground="White" FontSize="15">
+                <MenuItem Header="Developer: LuVairo" Foreground="Black"/>
+                <MenuItem Header="Language: C#" Foreground="Black"/>
+                <MenuItem Header="Framework: WPF" Foreground="Black"/>
+                <MenuItem Header="Platform: .NET" Foreground="Black"/>
+            </MenuItem>
+        </Menu>
         <StackPanel Orientation="Vertical" Margin="0 10 0 0">
             <TextBlock Style="{StaticResource textblock_coefficent_style}"
                 Text="Coefficient a:"/>

@@ -49,7 +49,10 @@
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="20">
                             <Border.Background>
-                                <SolidColorBrush x:Name="BorderColor" Color="DodgerBlue"/>
+                                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                                    <GradientStop Color="DodgerBlue"/>
+                                    <GradientStop Color="DarkBlue" Offset="1"/>
+                                </LinearGradientBrush>
                             </Border.Background>
                             <ContentPresenter 
                                 HorizontalAlignment="Center" 
@@ -59,20 +62,26 @@
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState Name="MouseOver">
                                         <Storyboard>
-                                            <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="DarkBlue" Duration="0:0:0.5"/>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[0].Color"
+                                                To="DarkBlue" Duration="0:0:0.5"/>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color"
+                                                To="DodgerBlue" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState Name="Normal">
                                         <Storyboard>
-                                            <ColorAnimation Storyboard.TargetName="BorderColor"
-                                    Storyboard.TargetProperty="Color" To="DodgerBlue" Duration="0:0:0.5"/>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[0].Color"
+                                                To="DodgerBlue" Duration="0:0:0.5"/>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color"
+                                                To="DarkBlue" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState Name="Disabled">
                                         <Storyboard>
-                                            <ColorAnimation Storyboard.TargetName="BorderColor"
-                                                            Storyboard.TargetProperty="Color" To="Gray" Duration="0:0:0.5"/>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[0].Color"
+                                                To="Gray" Duration="0:0:0.5"/>
+                                            <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color"
+                                                To="Gray" Duration="0:0:0.5"/>
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
