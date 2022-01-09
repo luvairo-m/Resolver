@@ -31,6 +31,7 @@
                 <MenuItem Header="Language: C#" Foreground="Black"/>
                 <MenuItem Header="Framework: WPF" Foreground="Black"/>
                 <MenuItem Header="Platform: .NET" Foreground="Black"/>
+                <MenuItem Header="GitHub: luvairo-m" Foreground="Black"/>
             </MenuItem>
         </Menu>
         <StackPanel Orientation="Vertical" Margin="0 10 0 0">
@@ -98,8 +99,7 @@
             <StackPanel Orientation="Vertical">
                 <m:FormulaControl Style="{StaticResource formula_style}"
                     HorizontalContentAlignment="Center"
-                    Formula="ax^2 + bx + c = 0"
-                />
+                    Formula="ax^2 + bx + c = 0"/>
                 <m:FormulaControl Style="{StaticResource formula_style}"
                     HorizontalContentAlignment="Center"
                     Formula="D = b ^ 2 - 4ac"
