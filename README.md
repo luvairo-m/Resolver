@@ -5,6 +5,7 @@ Resolver is a simple application that was designed to solve **quadratic equation
     1. simple and intuitive interface
     2. only important information
     3. quick solution of equations
+    4. different solution ways
     
 ## Other information:
     + owner: luvairo (luvairo-m)
