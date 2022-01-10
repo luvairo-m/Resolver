@@ -23,6 +23,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="0.05*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Menu VerticalAlignment="Bottom" Background="#FF252526">
@@ -78,13 +79,34 @@
                 </Button.ToolTip>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="1">
+        <Slider HorizontalAlignment="Center" Height="240" VerticalAlignment="Top" Minimum="1" Maximum="50"
+                Margin="0 15 0 0" Value="{Binding ElementName=output_field, Mode=TwoWay, Path=FontSize}"
+                TickPlacement="TopLeft"
+                Orientation="Vertical" Grid.Column="1" FlowDirection="RightToLeft">
+                <Slider.ToolTip>
+                    <ToolTip Content="You can change font size using slider" FontSize="14"/>
+                </Slider.ToolTip>
+        </Slider>
+        <StackPanel Grid.Column="2">
             <Grid Height="270">
                 <ScrollViewer Margin="18" IsEnabled="True">
-                    <TextBlock Style="{StaticResource textblock_solution_style}">
-                        <Run Text="{Binding Equation.Solution.MainEquationViewLine, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Style="{StaticResource textblock_solution_style}"
+                               x:Name="output_field">
+                        <Run Text="Equation:">
+                            <Run.Style>
+                                <Style TargetType="{x:Type Run}">
+                                    <Setter Property="TextDecorations" Value="Underline"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=equation_field, Path=Text}" Value="">
+                                            <Setter Property="Foreground" Value="Transparent"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Run.Style>
+                        </Run>
+                        <Run x:Name="equation_field" Text="{Binding Equation.Solution.MainEquationViewLine, UpdateSourceTrigger=PropertyChanged}"/>
                         <LineBreak/><LineBreak/>      
-                        <Run Text="{Binding Equation.Solution.TopLine}"/>
+                        <Run Text="{Binding Equation.Solution.TopLine}" TextDecorations="Underline"/>
                         <LineBreak/>
                         <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
                                                                                                         Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>
@@ -97,7 +119,7 @@
                         <LineBreak/>
                         <Run Text="{Binding Equation.Solution.Answer, UpdateSourceTrigger=PropertyChanged}"/>
                         <LineBreak/><LineBreak/>
-                        <Run Text="{Binding Equation.Solution.BottomLine}"/>
+                        <Run Text="{Binding Equation.Solution.BottomLine}" TextDecorations="Underline"/>
                         <LineBreak/>
                         <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
                                                                                                         Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>

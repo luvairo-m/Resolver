@@ -56,19 +56,19 @@ namespace Resolver
         {
             if (b == 0 && c != 0)
             {
-                return $"Equation: {A.Value} * x^2 {(C.Value < 0 ? "-" : "+")} {Math.Abs(C.Value)} = 0";
+                return $"{A.Value} * x^2 {(C.Value < 0 ? "-" : "+")} {Math.Abs(C.Value)} = 0";
             }
             else if (b == 0 && c == 0)
             {
-                return $"Equation: {A.Value} * x^2 = 0";
+                return $"{A.Value} * x^2 = 0";
             }
             else if (b != 0 && c == 0)
             {
-                return $"Equation: {A.Value} * x^2 {(B.Value < 0 ? "-" : "+")} {Math.Abs(B.Value)} * x = 0";
+                return $"{A.Value} * x^2 {(B.Value < 0 ? "-" : "+")} {Math.Abs(B.Value)} * x = 0";
             }
             else
             {
-                return $"Equation: {A.Value} * x^2 {(B.Value < 0 ? "-" : "+")} {Math.Abs(B.Value)} * x {(C.Value < 0 ? "-" : "+")} {Math.Abs(C.Value)} = 0";
+                return $"{A.Value} * x^2 {(B.Value < 0 ? "-" : "+")} {Math.Abs(B.Value)} * x {(C.Value < 0 ? "-" : "+")} {Math.Abs(C.Value)} = 0";
             }
         }
 
