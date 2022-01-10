@@ -3,11 +3,11 @@ Resolver is a simple application that was designed to solve **quadratic equation
 
 ## Main features:
     1. simple and intuitive interface
-    2. light weight of the program
+    2. only important information
     3. quick solution of equations
     
 ## Other information:
-    + owner: luvairo
+    + owner: luvairo (luvairo-m)
     + studio: LuVairo's Studio
     + language: English
     + programming language: C#  
@@ -15,7 +15,7 @@ Resolver is a simple application that was designed to solve **quadratic equation
     + framework: WPF (Windows Presentation Foundation)
     
 # Installation Guide
-Just download installer from the link below, run it and follow the instructions
+Just download msi or non-msi installer from the link below, run it and follow the instructions
 <br/>
 **Yandex Disk:** https://disk.yandex.ru/d/Yj8fhAXGmfTftg
 
