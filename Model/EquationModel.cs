@@ -62,11 +62,11 @@ namespace Resolver
             Solution = new EquationSolutionBuilder()
                 .SetDescriminantLine($"D = {B.Value}^2 - 4 * {A.Value} * {C.Value} = ")
                 .SetDescriminant(desc)
-                .SetFirstRootLine(desc < 0 ? $"x(1) doesn't exist" : $"x(1) = (-{B.Value} + sqrt({desc})) / (2 * {A.Value}) = ")
+                .SetFirstRootLine(desc < 0 ? $"x1 doesn't exist" : $"x1 = (-{B.Value} + {desc}^0.5) / (2 * {A.Value}) = ")
                 .SetFirstRoot(double.IsNaN(first_root.Value) ? null : first_root)
-                .SetSecondRootLine(desc <= 0 ? "x(2) doesn't exist" : $"x(2) = (-{B.Value} - sqrt({desc})) / (2 * {A.Value}) = ")
+                .SetSecondRootLine(desc <= 0 ? "x2 doesn't exist" : $"x2 = (-{B.Value} - {desc}^0.5) / (2 * {A.Value}) = ")
                 .SetSecondRoot(double.IsNaN(second_root.Value) || second_root.Value == first_root.Value ? null : second_root)
-                .SetAnswer(desc < 0 ? "Answer: empty set (no sulutions)" : desc == 0 ? $"Answer: {first_root}" : $"Answer: {first_root}; {second_root}")
+                .SetAnswer(desc < 0 ? "Answer: empty set (no solutions)" : desc == 0 ? $"Answer: {first_root}" : $"Answer: {first_root}; {second_root}")
                 .BuildSolution();
         }
 
