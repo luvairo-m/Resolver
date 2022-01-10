@@ -79,23 +79,40 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <ScrollViewer Margin="18">
-                <TextBlock Style="{StaticResource textblock_solution_style}" >
-                    <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
-                                                                                                   Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>
-                    <LineBreak/>
-                    <Run Text="{Binding Equation.Solution.FirstRootLine, UpdateSourceTrigger=PropertyChanged}" /><Run Background="DodgerBlue" 
-                                                                                                   Text="{Binding Equation.Solution.FirstRoot, UpdateSourceTrigger=PropertyChanged}"/>
-                    <LineBreak/>
-                    <Run Text="{Binding Equation.Solution.SecondRootLine, UpdateSourceTrigger=PropertyChanged}" /><Run Background="DodgerBlue" 
-                                                                                                   Text="{Binding Equation.Solution.SecondRoot, UpdateSourceTrigger=PropertyChanged}"/>
-                    <LineBreak/>
-                    <Run Text="{Binding Equation.Solution.Answer, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBlock.ToolTip>
-                        <ToolTip BorderThickness="0" Content="Press (Ctrl + B) to copy roots" FontSize="14"/>
-                    </TextBlock.ToolTip>
-                </TextBlock>
-            </ScrollViewer>
+            <Grid Height="270">
+                <ScrollViewer Margin="18" IsEnabled="True">
+                    <TextBlock Style="{StaticResource textblock_solution_style}">
+                        <Run Text="{Binding Equation.Solution.MainEquationViewLine, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/><LineBreak/>      
+                        <Run Text="{Binding Equation.Solution.TopLine}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
+                                                                                                        Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.FirstRootLine, UpdateSourceTrigger=PropertyChanged}" /><Run Background="DodgerBlue" 
+                                                                                                        Text="{Binding Equation.Solution.FirstRoot, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.SecondRootLine, UpdateSourceTrigger=PropertyChanged}" /><Run Background="DodgerBlue" 
+                                                                                                        Text="{Binding Equation.Solution.SecondRoot, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.Answer, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/><LineBreak/>
+                        <Run Text="{Binding Equation.Solution.BottomLine}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.DescriminantLine, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" /><Run Background="HotPink" 
+                                                                                                        Text="{Binding Equation.Solution.Descriminant, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.FirstEquationLine, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.SecondEquationLine, UpdateSourceTrigger=PropertyChanged}"/>
+                        <LineBreak/>
+                        <Run Text="{Binding Equation.Solution.Answer, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock.ToolTip>
+                            <ToolTip BorderThickness="0" Content="Press (Ctrl + B) to copy roots" FontSize="14"/>
+                        </TextBlock.ToolTip>
+                    </TextBlock>
+                </ScrollViewer>
+            </Grid>
             <StackPanel Orientation="Vertical">
                 <m:FormulaControl Style="{StaticResource formula_style}"
                     HorizontalContentAlignment="Center"

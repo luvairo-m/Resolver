@@ -6,6 +6,12 @@
 
         internal EquationSolutionBuilder() => _solution = new EquationSolution();
 
+        public EquationSolutionBuilder SetMainEquationViewLine(string line)
+        {
+            _solution.MainEquationViewLine = line;
+            return this;
+        }
+
         public EquationSolutionBuilder SetDescriminantLine(string line)
         {
             _solution.DescriminantLine = line;
@@ -39,6 +45,18 @@
         public EquationSolutionBuilder SetAnswer(string answer)
         {
             _solution.Answer = answer;
+            return this;
+        }
+
+        public EquationSolutionBuilder SetFirstEquationLine(string line)
+        {
+            _solution.FirstEquationLine = line;
+            return this;
+        }
+
+        public EquationSolutionBuilder SetSecondEquationLine(string line)
+        {
+            _solution.SecondEquationLine = line;
             return this;
         }
 

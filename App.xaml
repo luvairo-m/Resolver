@@ -16,7 +16,6 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style> 
         <Style TargetType="TextBlock" x:Key="textblock_solution_style">
-            <Setter Property="Height" Value="240"/>
             <Setter Property="Background" Value="#FF3E3E42"/>
             <Setter Property="Padding" Value="15"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
