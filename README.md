@@ -21,6 +21,5 @@ Just download msi or non-msi installer from the link below, run it and follow th
 **Yandex Disk:** https://disk.yandex.ru/d/Yj8fhAXGmfTftg
 
 ## Some photos
-![first_screenshot](https://user-images.githubusercontent.com/53510413/148777811-2a072a3f-4cca-4c76-a6f7-85d02cdc313a.png)
-![second_screenshot](https://user-images.githubusercontent.com/53510413/148678062-185c3f43-5f12-4d26-bfce-45345bce9113.png)
-
+![first_screenshot](https://user-images.githubusercontent.com/53510413/148985263-1bd45feb-19d7-41fc-ac77-e935efbeebc5.png)
+![second_screenshot](https://user-images.githubusercontent.com/53510413/148985268-b166cb6d-0aa4-477b-9aa2-be5fd6fd84e8.png)
