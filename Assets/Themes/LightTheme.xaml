@@ -2,11 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:m="clr-namespace:WpfMath.Controls;assembly=WpfMath">
     <Style TargetType="Window" x:Key="window_style">
-        <Setter Property="Background" Value="#FF252526"/>
-    </Style>
-    <Style TargetType="Menu" x:Key="menu_style">
-        <Setter Property="VerticalAlignment" Value="Bottom"/>
-        <Setter Property="MenuItem.Foreground" Value="White"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
+                    <GradientStop Color="DodgerBlue"/>
+                    <GradientStop Color="DarkBlue" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style TargetType="m:FormulaControl" x:Key="formula_style">
         <Setter Property="Foreground" Value="White"/>
@@ -18,6 +21,7 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Minimum" Value="1"/>
         <Setter Property="Maximum" Value="50"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Margin" Value="0 15 0 0"/>
         <Setter Property="TickPlacement" Value="TopLeft"/>
         <Setter Property="FlowDirection" Value="RightToLeft"/>
@@ -30,6 +34,10 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="Menu" x:Key="menu_style">
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="MenuItem.Foreground" Value="Black"/>
+    </Style>
     <Style TargetType="TextBlock" x:Key="textblock_coefficent_style">
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="Margin" Value="5"/>
@@ -38,7 +46,7 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
     <Style TargetType="TextBlock" x:Key="textblock_solution_style">
-        <Setter Property="Background" Value="#FF3E3E42"/>
+        <Setter Property="Background" Value="DodgerBlue"/>
         <Setter Property="Padding" Value="15"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="Foreground" Value="White"/>
@@ -49,7 +57,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <ColorAnimation Storyboard.TargetProperty="Background.Color"
-                                                To="DodgerBlue" Duration="0:0:0.5" AutoReverse="True"/>
+                                                To="Green" Duration="0:0:0.5" AutoReverse="True"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </DataTrigger.EnterActions>
@@ -71,8 +79,8 @@
                     <Border CornerRadius="20">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0, 0" EndPoint="1, 1">
-                                <GradientStop Color="DodgerBlue"/>
-                                <GradientStop Color="DarkBlue" Offset="1"/>
+                                <GradientStop Color="Green"/>
+                                <GradientStop Color="Orange" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.Background>
                         <ContentPresenter 
@@ -84,23 +92,23 @@
                                 <VisualState Name="MouseOver">
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[0].Color"
-                                                To="DarkBlue" Duration="0:0:0.5"/>
+                                                To="Orange" Duration="0:0:0.5"/>
                                         <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color"
-                                                To="DodgerBlue" Duration="0:0:0.5"/>
+                                                To="Green" Duration="0:0:0.5"/>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState Name="Normal">
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[0].Color"
-                                                To="DodgerBlue" Duration="0:0:0.5"/>
+                                                To="Green" Duration="0:0:0.5"/>
                                         <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color"
-                                                To="DarkBlue" Duration="0:0:0.5"/>
+                                                To="Orange" Duration="0:0:0.5"/>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState Name="Disabled">
                                     <Storyboard>
                                         <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[0].Color"
-                                                To="Gray" Duration="0:0:0.5"/>
+                                                To="Red" Duration="0:0:0.5"/>
                                         <ColorAnimation Storyboard.TargetProperty="Background.GradientStops[1].Color"
                                                 To="Gray" Duration="0:0:0.5"/>
                                     </Storyboard>
@@ -129,10 +137,11 @@
     <Style TargetType="TextBox" x:Key="textbox_main_style">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="22"/>
-        <Setter Property="Background" Value="#FF3E3E42"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="White"/>
         <Setter Property="Width" Value="200"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="32"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="MaxLength" Value="10"/>

@@ -8,6 +8,20 @@ namespace Resolver
     {
         public EquationModel Equation { get; set; } = new EquationModel();
 
+        private bool _is_light_theme_selected = Properties.Settings.Default.app_theme == 1;
+        public bool IsLightThemeSelected
+        {
+            get => _is_light_theme_selected;
+            set { _is_light_theme_selected = value; OnPropertyChanged(); }
+        }
+
+        private bool _is_dark_theme_selected = Properties.Settings.Default.app_theme == 0;
+        public bool IsDarkThemeSelected
+        {
+            get => _is_dark_theme_selected;
+            set { _is_dark_theme_selected = value; OnPropertyChanged(); }
+        }
+
         private bool _is_equation_copied;
         public bool IsEquationCopied
         {
@@ -28,6 +42,40 @@ namespace Resolver
                     return Equation.A.HasValue
                     || Equation.B.HasValue
                     || Equation.C.HasValue;
+                }
+            );
+        }
+
+        private CommandModel _to_light_command;
+        public CommandModel ToLightCommand
+        {
+            get => _to_light_command ??= new CommandModel(
+                (action) =>
+                {
+                    Properties.Settings.Default.app_theme = 1;
+                    Properties.Settings.Default.Save();
+
+                    IsLightThemeSelected = true;
+                    IsDarkThemeSelected = false;
+
+                    MainWindow.InitializeTheme();
+                }
+            );
+        }
+
+        private CommandModel _to_dark_command;
+        public CommandModel ToDarkCommand
+        {
+            get => _to_dark_command ??= new CommandModel(
+                (action) =>
+                {
+                    Properties.Settings.Default.app_theme = 0;
+                    Properties.Settings.Default.Save();
+
+                    IsLightThemeSelected = false;
+                    IsDarkThemeSelected = true;
+
+                    MainWindow.InitializeTheme();
                 }
             );
         }
