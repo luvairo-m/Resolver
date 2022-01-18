@@ -5,8 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Assets\Themes\DarkTheme.xaml"/>
-                <ResourceDictionary Source="Assets\Themes\LightTheme.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Assets/Themes/DarkTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -42,7 +42,7 @@
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontFamily" Value="./Assets/Fonts/#vag-world-bold.ttf"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/Assets/Fonts/#vag-world-bold.ttf"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
     </Style>
     <Style TargetType="TextBlock" x:Key="textblock_solution_style">
